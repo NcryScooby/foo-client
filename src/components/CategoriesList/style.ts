@@ -68,7 +68,7 @@ export const ProductsList = styled.div`
 
   .items {
     background-color: #ffffff;
-    border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 1rem 1rem 1rem 1rem;
     width: 300px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -98,6 +98,6 @@ export const ProductsList = styled.div`
   }
 
   img {
-    border-radius: 1.5rem 1.5rem 0 0;
+    border-radius: 1rem 1rem 0 0;
   }
 `;
