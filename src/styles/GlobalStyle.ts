@@ -57,4 +57,17 @@ html {
     transform: initial;
   }
 }
+
+.animeRight {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: animeRight 1s forwards;
+  }
+
+  @keyframes animeRight {
+    to {
+      opacity: 1;
+      transform: initial;
+    }
+  }
 `;
