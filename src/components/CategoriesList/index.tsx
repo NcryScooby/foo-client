@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Category } from "../../models/Category";
 import { getCategories, getProducts } from "../../services/index";
 import { CategoryButton } from "../CategoryButton";
-import { Container, Box, ProductsList } from "./style";
+import { Container, Box, ProductsList, CartButton } from "./style";
 import { Product } from "../../models/Product";
 import { formatCurrency } from "../../utils/formatCurrency";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import { useSizeScreen } from "../../hooks/useSizeScreen";
+import { GlobalStateContext } from "../../contexts/GlobalStateContext";
+import { useContext } from "react";
 
 export const CategoriesList = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -18,10 +20,25 @@ export const CategoriesList = () => {
   });
   const screen = useSizeScreen();
 
+  const { cart, setCart } = useContext(GlobalStateContext);
+
   useEffect(() => {
     getCategories().then((categories) => setCategories(categories));
     getProducts().then((products) => setProducts(products));
   }, []);
+
+  const addToCart = (product: Product) => {
+    setCart([...cart, product]);
+  };
+
+  const decreaseFromCart = (product: Product) => {
+    const updatedCart = [...cart];
+    const productIndex = updatedCart.findIndex((p) => p._id === product._id);
+    if (productIndex !== -1) {
+      updatedCart.splice(productIndex, 1);
+      setCart(updatedCart);
+    }
+  };
 
   if (!categories.length || !products.length) {
     return (
@@ -120,6 +137,16 @@ export const CategoriesList = () => {
                   <p>{product.name}</p>
                   <p className="description">{product.description}</p>
                   <p className="price">{formatCurrency(product.price)}</p>
+                </div>
+                <div className="cart">
+                  <CartButton onClick={() => addToCart(product)}>
+                    Add to cart
+                  </CartButton>
+                  {cart.find((p: Product) => p._id === product._id) ? (
+                    <CartButton onClick={() => decreaseFromCart(product)}>
+                      Remove from cart
+                    </CartButton>
+                  ) : null}
                 </div>
               </div>
             ))}

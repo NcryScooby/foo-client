@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   height: calc(100vh - 6rem);
@@ -99,5 +99,38 @@ export const ProductsList = styled.div`
 
   img {
     border-radius: 1rem 1rem 0 0;
+  }
+
+  .cart {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+`;
+
+const RippleAnimation = keyframes`
+  from {
+    background-color: #000000;
+  }
+
+  to {
+    background-color: #303030;
+  }
+`;
+
+export const CartButton = styled.button`
+  border: 0;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 0.4rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #303030;
+  }
+
+  &:active {
+    animation: ${RippleAnimation} 0.1s ease-out;
   }
 `;
