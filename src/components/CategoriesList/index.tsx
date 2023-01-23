@@ -7,6 +7,7 @@ import { Product } from "../../models/Product";
 import { formatCurrency } from "../../utils/formatCurrency";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
+import { useSizeScreen } from "../../hooks/useSizeScreen";
 
 export const CategoriesList = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -15,6 +16,7 @@ export const CategoriesList = () => {
   const [selected, setSelected] = useState({
     id: "63cc3f45e8b88a4f200d79b3",
   });
+  const screen = useSizeScreen();
 
   useEffect(() => {
     getCategories().then((categories) => setCategories(categories));
@@ -33,13 +35,15 @@ export const CategoriesList = () => {
                   <Stack spacing={1}>
                     <Skeleton
                       variant="rounded"
-                      width={96}
-                      height={96}
+                      width={screen.width > 768 ? 96 : 64}
+                      height={screen.width > 768 ? 96 : 64}
                       sx={{
                         borderRadius: "1.5rem",
                       }}
                     />
-                    <Skeleton variant="rounded" width={96} height={24} />
+                    {screen.width > 768 ? (
+                      <Skeleton variant="rounded" width={96} height={24} />
+                    ) : null}
                   </Stack>
                 </div>
               ))}
