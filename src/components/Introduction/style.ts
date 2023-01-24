@@ -128,7 +128,7 @@ export const Button = styled.button`
   &:focus,
   &:hover {
     background-color: #ff7e00;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
   }
 
   @media (max-width: 768px) {

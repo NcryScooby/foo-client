@@ -70,21 +70,22 @@ export const CategoriesList = () => {
             </ul>
           </Box>
           <ProductsList>
-            {Array.from(new Array(2)).map((item, index) => (
+            {Array.from(new Array(3)).map((item, index) => (
               <div key={index}>
                 <Stack spacing={1}>
                   <Skeleton
                     variant="rounded"
-                    width={300}
+                    width={353}
                     height={200}
                     sx={{
-                      borderRadius: "1.5rem",
+                      borderRadius: "1.5rem 1.5rem 0 0",
                     }}
                   />
-                  <Skeleton animation="wave" />
-                  <Skeleton animation="wave" />
-                  <Skeleton animation="wave" />
-                  <Skeleton animation="wave" />
+                  {Array.from(new Array(4)).map((item, index) => (
+                    <div key={index}>
+                      <Skeleton animation="wave" width={350} />
+                    </div>
+                  ))}
                 </Stack>
               </div>
             ))}

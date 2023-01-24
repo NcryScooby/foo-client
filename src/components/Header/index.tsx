@@ -41,10 +41,10 @@ export const Header = () => {
             <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/cart">Cart</Link>
           </li>
           <li>
-            <Link to="/shop">Shop</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
