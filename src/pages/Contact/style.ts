@@ -88,6 +88,10 @@ export const Container = styled.div`
     &:hover {
       background-color: #000;
     }
+
+    &:disabled {
+      background-color: #ccc;
+    }
   }
 
   .name {
