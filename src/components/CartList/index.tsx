@@ -9,6 +9,7 @@ export const CartList = () => {
   const { cart, setCart } = useContext(GlobalStateContext);
 
   const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER;
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
@@ -54,7 +55,7 @@ export const CartList = () => {
             .map((item: Product) => (
               <div key={item._id} className="items">
                 <img
-                  src={`http://localhost:3001/uploads/products/${item.imagePath}`}
+                  src={`${VITE_API_URL}uploads/products/${item.imagePath}`}
                   alt={item.name}
                 />
                 <div>

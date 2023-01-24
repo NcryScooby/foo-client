@@ -23,6 +23,8 @@ export const CategoriesList = () => {
 
   const { cart, setCart } = useContext(GlobalStateContext);
 
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     getCategories().then((categories) => setCategories(categories));
     getProducts().then((products) => setProducts(products));
@@ -113,8 +115,8 @@ export const CategoriesList = () => {
                   <img
                     src={
                       category._id === selected.id
-                        ? `http://localhost:3001/uploads/icons/${category.iconPathLight}`
-                        : `http://localhost:3001/uploads/icons/${category.iconPath}`
+                        ? `${VITE_API_URL}uploads/icons/${category.iconPathLight}`
+                        : `${VITE_API_URL}uploads/icons/${category.iconPath}`
                     }
                     alt="icons"
                     className="icon"
@@ -131,7 +133,7 @@ export const CategoriesList = () => {
             .map((product) => (
               <div key={product._id} className="items">
                 <img
-                  src={`http://localhost:3001/uploads/products/${product.imagePath}`}
+                  src={`${VITE_API_URL}uploads/products/${product.imagePath}`}
                   alt="products"
                 />
                 <div className="infos">
