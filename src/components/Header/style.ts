@@ -92,6 +92,6 @@ export const SearchInput = styled.input`
   }
 
   @media (max-width: 768px) {
-    width: 8rem;
+    width: 12rem;
   }
 `;

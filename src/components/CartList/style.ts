@@ -33,6 +33,11 @@ export const List = styled.ul`
     width: 100%;
     justify-content: end;
 
+    @media (max-width: 768px) {
+      padding: 0 2rem;
+      padding-bottom: 2rem;
+    }
+
     .whatsapp {
       cursor: pointer;
       width: 25%;
@@ -42,6 +47,10 @@ export const List = styled.ul`
       color: #ffffff;
       background-color: #000000;
       font-size: 1rem;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
 
       &:hover {
         background-color: #313131;
@@ -54,6 +63,10 @@ export const List = styled.ul`
     align-items: center;
     justify-content: space-between;
     padding: 2rem 4rem;
+
+    @media (max-width: 768px) {
+      padding: 2rem;
+    }
 
     span {
       &:first-child {
@@ -75,6 +88,10 @@ export const List = styled.ul`
   img {
     width: 10rem;
     border-radius: 1rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   .items {
@@ -84,18 +101,47 @@ export const List = styled.ul`
     padding: 2rem;
     border-bottom: 0.8px solid #d9d9d9;
 
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+
+      .remove {
+        display: none;
+      }
+    }
+
     .remove {
       border: 0;
       background-color: transparent;
       cursor: pointer;
       font-size: 1rem;
       color: #313131;
+
+      &:hover {
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        cursor: pointer;
+        background-color: #313131;
+        color: #ffffff;
+      }
     }
 
     .add-remove {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       place-items: center;
+
+      @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+      }
+
       button {
         border-radius: 50%;
         width: 2rem;

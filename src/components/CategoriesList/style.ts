@@ -109,6 +109,9 @@ export const ProductsList = styled.div`
 
   img {
     border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 
   .add-remove {

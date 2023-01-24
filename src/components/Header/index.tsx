@@ -12,7 +12,9 @@ export const Header = () => {
   return (
     <Container>
       <div>
-        <Logo src={logo} alt="logo" />
+        <Link to="/">
+          <Logo src={logo} alt="logo" />
+        </Link>
       </div>
       <div>
         <ul>

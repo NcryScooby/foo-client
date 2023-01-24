@@ -81,7 +81,7 @@ export const CartList = () => {
                       setCart(cart.filter((i: Product) => i._id !== item._id))
                     }
                   >
-                    X
+                    x
                   </button>
                 </div>
               </div>
