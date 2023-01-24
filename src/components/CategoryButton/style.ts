@@ -17,7 +17,5 @@ export const ButtonStyle = styled.button`
 
   @media (max-width: 768px) {
     padding: 1rem;
-
-    // display none in children elements
   }
 `;

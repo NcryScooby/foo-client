@@ -86,8 +86,10 @@ export const List = styled.ul`
   }
 
   img {
-    width: 10rem;
+    width: 300px;
+    height: 150px;
     border-radius: 1rem;
+    object-fit: cover;
 
     @media (max-width: 768px) {
       width: 100%;

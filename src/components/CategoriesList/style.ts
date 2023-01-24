@@ -55,9 +55,12 @@ export const Box = styled.div`
 
 export const ProductsList = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  padding-bottom: 8rem;
 
   @media (max-width: 768px) {
     display: flex;
@@ -69,7 +72,7 @@ export const ProductsList = styled.div`
   .items {
     background-color: #ffffff;
     border-radius: 1rem 1rem 1rem 1rem;
-    width: 300px;
+    width: 100%;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 

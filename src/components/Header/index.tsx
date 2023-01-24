@@ -3,11 +3,27 @@ import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GlobalStateContext } from "../../contexts/GlobalStateContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { HiShoppingCart } from "react-icons/hi";
 
 export const Header = () => {
   const { cart } = useContext(GlobalStateContext);
+
+  useEffect(() => {
+    const span = document.querySelector("span");
+
+    span?.animate(
+      [
+        { transform: "scale(1)" },
+        { transform: "scale(1.3)" },
+        { transform: "scale(1)" },
+      ],
+      {
+        duration: 300,
+        iterations: 1,
+      }
+    );
+  }, [cart]);
 
   return (
     <Container>
