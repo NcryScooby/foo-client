@@ -34,8 +34,10 @@ export const Header = () => {
         <AiOutlineSearch className="icon" color="#909090" />
         <SearchInput type="text" name="Search" placeholder="Search" />
         <div className="cart">
-          <HiShoppingCart className="icon-cart" size={16} color="#909090" />
-          <span>{cart.length}</span>
+          <Link to="/cart">
+            <HiShoppingCart className="icon-cart" size={16} color="#909090" />
+            <span>{cart.length}</span>
+          </Link>
         </div>
       </div>
     </Container>

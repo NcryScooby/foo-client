@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: calc(100vh - 6rem);
@@ -79,6 +79,16 @@ export const ProductsList = styled.div`
       flex-direction: column;
       gap: 0.5rem;
 
+      .prices-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+
+        &:last-child {
+          padding-right: 0.5rem;
+        }
+      }
+
       p:first-child {
         font-weight: bold;
         font-size: 1.1rem;
@@ -101,36 +111,17 @@ export const ProductsList = styled.div`
     border-radius: 1rem 1rem 0 0;
   }
 
-  .cart {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-  }
-`;
-
-const RippleAnimation = keyframes`
-  from {
-    background-color: #000000;
-  }
-
-  to {
-    background-color: #303030;
-  }
-`;
-
-export const CartButton = styled.button`
-  border: 0;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 0.4rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #303030;
-  }
-
-  &:active {
-    animation: ${RippleAnimation} 0.1s ease-out;
+  .add-remove {
+    display: grid;
+    grid-template-columns: 10px 50px 10px;
+    place-items: center;
+    button {
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      border: none;
+      cursor: pointer;
+      background-color: #d9d9d9;
+    }
   }
 `;

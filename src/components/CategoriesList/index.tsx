@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Category } from "../../models/Category";
 import { getCategories, getProducts } from "../../services/index";
 import { CategoryButton } from "../CategoryButton";
-import { Container, Box, ProductsList, CartButton } from "./style";
+import { Container, Box, ProductsList } from "./style";
 import { Product } from "../../models/Product";
 import { formatCurrency } from "../../utils/formatCurrency";
 import Skeleton from "@mui/material/Skeleton";
@@ -10,6 +10,7 @@ import Stack from "@mui/material/Stack";
 import { useSizeScreen } from "../../hooks/useSizeScreen";
 import { GlobalStateContext } from "../../contexts/GlobalStateContext";
 import { useContext } from "react";
+import { Tooltip } from "@mui/material";
 
 export const CategoriesList = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -135,18 +136,32 @@ export const CategoriesList = () => {
                 />
                 <div className="infos">
                   <p>{product.name}</p>
-                  <p className="description">{product.description}</p>
-                  <p className="price">{formatCurrency(product.price)}</p>
-                </div>
-                <div className="cart">
-                  <CartButton onClick={() => addToCart(product)}>
-                    Add to cart
-                  </CartButton>
-                  {cart.find((p: Product) => p._id === product._id) ? (
-                    <CartButton onClick={() => decreaseFromCart(product)}>
-                      Remove from cart
-                    </CartButton>
-                  ) : null}
+                  {product.description.length > 30 ? (
+                    <Tooltip
+                      title={product.description}
+                      placement="bottom"
+                      disableInteractive
+                    >
+                      <p className="description">
+                        {product.description.substring(0, 30)}...
+                      </p>
+                    </Tooltip>
+                  ) : (
+                    <p className="description">{product.description}</p>
+                  )}
+                  <div className="prices-buttons">
+                    <p className="price">{formatCurrency(product.price)}</p>
+                    <div className="add-remove">
+                      <button onClick={() => decreaseFromCart(product)}>
+                        -
+                      </button>
+                      {
+                        cart.filter((i: Product) => i._id === product._id)
+                          .length
+                      }
+                      <button onClick={() => addToCart(product)}>+</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
