@@ -26,6 +26,29 @@ export const List = styled.ul`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   color: #313131;
 
+  .order {
+    padding: 0 4rem;
+    padding-bottom: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+
+    .whatsapp {
+      cursor: pointer;
+      width: 25%;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      color: #ffffff;
+      background-color: #000000;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #313131;
+      }
+    }
+  }
+
   .total {
     display: flex;
     align-items: center;
@@ -80,6 +103,11 @@ export const List = styled.ul`
         border: none;
         cursor: pointer;
         background-color: #d9d9d9;
+
+        &:active {
+          background-color: #313131;
+          color: #ffffff;
+        }
       }
     }
 

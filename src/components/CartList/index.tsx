@@ -3,9 +3,12 @@ import { GlobalStateContext } from "../../contexts/GlobalStateContext";
 import { Product } from "../../models/Product";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { Container, List, Title } from "./style";
+import ReactWhatsapp from "react-whatsapp";
 
 export const CartList = () => {
   const { cart, setCart } = useContext(GlobalStateContext);
+
+  const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER;
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
@@ -39,7 +42,6 @@ export const CartList = () => {
               (item: Product, index: number, self: Product[]) =>
                 self.findIndex((i) => i._id === item._id) === index
             )
-            // order by name
             .sort((a: Product, b: Product) => {
               if (a.name < b.name) {
                 return -1;
@@ -93,6 +95,26 @@ export const CartList = () => {
                 }, 0)
               )}
             </span>
+          </div>
+          <div className="order">
+            <ReactWhatsapp
+              className="whatsapp"
+              number={WHATSAPP_NUMBER}
+              message={`Hello, I would like to place an order\n\n${cart
+                .map((item: Product) => {
+                  return `1x ${item.name} - ${formatCurrency(item.price)}\n`;
+                })
+                .toString()
+                .split(",")
+                .join("")}\nTotal: ${formatCurrency(
+                cart.reduce((acc: number, item: Product) => {
+                  return acc + item.price;
+                }, 0)
+              )}`}
+              element="button"
+            >
+              Place order
+            </ReactWhatsapp>
           </div>
         </List>
       </Container>

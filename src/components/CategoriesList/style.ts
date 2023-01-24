@@ -122,6 +122,11 @@ export const ProductsList = styled.div`
       border: none;
       cursor: pointer;
       background-color: #d9d9d9;
+
+      &:active {
+        background-color: #313131;
+        color: #ffffff;
+      }
     }
   }
 `;
