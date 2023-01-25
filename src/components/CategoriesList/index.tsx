@@ -138,7 +138,10 @@ export const CategoriesList = () => {
                   alt="products"
                 />
                 <div className="infos">
-                  <p>{product.name}</p>
+                  <div>
+                    <p>{product.name}</p>
+                    <p className="unit">{product.unitOfMeasurement}</p>
+                  </div>
                   {product.description.length > 30 ? (
                     <Tooltip
                       title={product.description}

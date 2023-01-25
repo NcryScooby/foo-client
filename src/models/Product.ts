@@ -4,6 +4,7 @@ export type Product = {
   description: string;
   imagePath: string;
   price: number;
+  unitOfMeasurement: string;
   ingredients: [
     {
       _id: string;

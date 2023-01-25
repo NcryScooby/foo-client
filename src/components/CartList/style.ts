@@ -175,9 +175,16 @@ export const List = styled.ul`
     }
 
     .description {
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.9rem;
       max-width: 25ch;
+    }
+
+    .unit {
+      font-size: 0.9rem;
+      color: #4b4b4b;
+      font-weight: 300;
+      margin-bottom: 1rem;
     }
   }
 `;

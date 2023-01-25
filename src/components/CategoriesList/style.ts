@@ -85,7 +85,7 @@ export const ProductsList = styled.div`
       .prices-buttons {
         display: flex;
         justify-content: space-between;
-        margin-top: 2rem;
+        margin-top: 1rem;
 
         &:last-child {
           padding-right: 0.5rem;
@@ -98,7 +98,7 @@ export const ProductsList = styled.div`
       }
 
       .description {
-        font-weight: 300;
+        font-weight: 400;
         line-height: 1rem;
         font-size: 0.9rem;
       }
@@ -135,5 +135,12 @@ export const ProductsList = styled.div`
         color: #ffffff;
       }
     }
+  }
+
+  .unit {
+    font-size: 0.9rem;
+    color: #4b4b4b;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
   }
 `;

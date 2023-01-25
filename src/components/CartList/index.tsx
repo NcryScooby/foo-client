@@ -66,6 +66,7 @@ export const CartList = () => {
                 />
                 <div>
                   <h1>{item.name}</h1>
+                  <p className="unit">{item.unitOfMeasurement}</p>
                   <p className="description">{item.description}</p>
                 </div>
                 <div className="add-remove">
