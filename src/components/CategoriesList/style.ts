@@ -70,8 +70,8 @@ export const ProductsList = styled.div`
   }
 
   .items {
-    background-color: #ffffff;
-    border-radius: 1rem 1rem 1rem 1rem;
+    background-color: #f6f3ef;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
     width: 100%;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -111,7 +111,7 @@ export const ProductsList = styled.div`
   }
 
   img {
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -127,7 +127,8 @@ export const ProductsList = styled.div`
       height: 2rem;
       border: none;
       cursor: pointer;
-      background-color: #d9d9d9;
+      background-color: #ffffff;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
       &:active {
         background-color: #313131;

@@ -3,7 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 4rem 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 2rem;
+  }
 
   .empty-cart {
     font-size: 2rem;
@@ -21,17 +27,25 @@ export const List = styled.ul`
   flex-direction: column;
   margin-top: 2rem;
   margin-bottom: 8rem;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   color: #313131;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #f6f3ef;
 
   .order {
     padding: 0 4rem;
     padding-bottom: 2rem;
     display: flex;
     width: 100%;
-    justify-content: end;
+    justify-content: space-between;
+
+    .back {
+      display: flex;
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
 
     @media (max-width: 768px) {
       padding: 0 2rem;
@@ -88,7 +102,7 @@ export const List = styled.ul`
   img {
     width: 300px;
     height: 150px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     object-fit: cover;
 
     @media (max-width: 768px) {
@@ -150,7 +164,8 @@ export const List = styled.ul`
         height: 2rem;
         border: none;
         cursor: pointer;
-        background-color: #d9d9d9;
+        background-color: #ffffff;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
         &:active {
           background-color: #313131;

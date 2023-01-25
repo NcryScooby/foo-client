@@ -4,6 +4,9 @@ import { Product } from "../../models/Product";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { Container, List, Title } from "./style";
 import ReactWhatsapp from "react-whatsapp";
+import { FoodAnimation } from "../FoodAnimation";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export const CartList = () => {
   const { cart, setCart } = useContext(GlobalStateContext);
@@ -36,7 +39,10 @@ export const CartList = () => {
   return (
     <>
       <Container>
-        <Title className="animeLeft">Cart</Title>
+        <div className="header">
+          <Title className="animeLeft">Cart</Title>
+          <FoodAnimation />
+        </div>
         <List>
           {cart
             .filter(
@@ -98,6 +104,20 @@ export const CartList = () => {
             </span>
           </div>
           <div className="order">
+            <Link
+              to="/menu"
+              className="back"
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
+              <div>
+                <IoIosArrowRoundBack size={36} />
+              </div>
+              <div>
+                <p>Back to Menu</p>
+              </div>
+            </Link>
             <ReactWhatsapp
               className="whatsapp"
               number={WHATSAPP_NUMBER}

@@ -7,6 +7,7 @@ export const Container = styled.div`
   padding: 2rem;
   margin-top: 4rem;
   color: #313131;
+  padding-bottom: 8rem;
 
   .infos {
     padding: 2rem;
