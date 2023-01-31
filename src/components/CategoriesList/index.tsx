@@ -11,10 +11,15 @@ import { useSizeScreen } from "../../hooks/useSizeScreen";
 import { GlobalStateContext } from "../../contexts/GlobalStateContext";
 import { useContext } from "react";
 import { Tooltip } from "@mui/material";
+import { IProductData } from "../../interfaces/IProductData";
 
 export const CategoriesList = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IProductData>({
+    products: [],
+    currentPage: 0,
+    totalPages: 0,
+  });
   const [filter, setFilter] = useState<string>("63cc3f45e8b88a4f200d79b3");
   const [selected, setSelected] = useState({
     id: "63cc3f45e8b88a4f200d79b3",
@@ -43,7 +48,7 @@ export const CategoriesList = () => {
     }
   };
 
-  if (!categories.length || !products.length) {
+  if (!categories.length || !products.products.length) {
     return (
       <>
         <Container>
@@ -129,9 +134,9 @@ export const CategoriesList = () => {
           </ul>
         </Box>
         <ProductsList>
-          {products
-            .filter((product) => product.category === filter)
-            .map((product) => (
+          {products.products
+            .filter((product: Product) => product.category === filter)
+            .map((product: Product) => (
               <div key={product._id} className="items">
                 <img
                   src={`${VITE_API_URL}uploads/products/${product.imagePath}`}
